@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Website</title>
+    <style>
+        body {
+              font-family: Arial, sans-serif;
+              line-height: 1.6;
+              margin: 0;
+              padding: 0;
+              background-color:#6DD75A;/* Teal */
+            scroll-behavior: smooth;
+        }
+        
+        header {
+            background-color:#E8CA57; /* Darker Teal */
+            color:#000000;
+            padding: 10px 0;
+            text-align: center;
+            
+        }
+        nav {
+            background-color:#606060;
+            text-align: center;
+            padding: 5px 0;
+        }
+        nav a {
+            color:#000000;
+            text-decoration: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+        nav a.active, nav a:hover {
+            color: #000000;
+            background-color: #FFF1F1;
+        }
+        section {
+            display: none;
+            padding: 20px;
+            background-color: #ffffff;
+            margin: 10px;
+        }
+        footer {
+            background-color: #FFFFFF;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        #contact-info {
+            display: none;
+            margin-top: 10px;
+            color:#000000;
+        }
+        #back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 50px;
+            right: 30px;
+            background-color: #10A4B0;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: opacity 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            // Show the selected section
+            var selectedSection = document.getElementById(sectionId);
+            selectedSection.style.display = 'block';
+
+            // Update active link
+            var links = document.querySelectorAll('nav a');
+            links.forEach(function(link) {
+                link.classList.remove('active');
+            });
+            document.querySelector(nav a[onclick="showSection('${sectionId}')"]).classList.add('active');
+        }
+
+        // Show "Back to Top" button on scroll
+        window.onscroll = function() {
+            var backToTopButton = document.getElementById('back-to-top');
+            if (document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        };
+
+        // Scroll back to top function
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Automatically update footer year
+        window.onload = function() {
+            document.getElementById('year').textContent = new Date().getFullYear();
+        };
+    </script>
+</head>
+<body>
+    <header>
+        <h1>NORTH NEGROS COLLEGE</h1>
+    </header>
+    <nav>
+        <a onclick="showSection('home')">Home</a>
+        <a onclick="showSection('about')">About</a>
+        <a onclick="showSection('services')">Services</a>
+        <a onclick="showSection('contact-info')">Contact</a>
+    </nav>
+    <section id="home">
+        <h2>Welcome to My Website!</h2>
+        <p>This is my first website</p>
+    </section>
+    <section id="about">
+         <img src="image//k.jpg"
+         style="height: 400px; width: 350px;"/> 
+        <h2>Hi There!</h2>
+        <p>My name is Kyla C. Barcenal 19 years old i am a freshmen Student of North Negros College, My Course Bachelor of Science in Computer Science (BSCS) .</p>
+    </section>
+    <section id="services">
+        <h2>Services</h2>
+        <ul>
+            <li>Software Development</li>
+            <li>Web Development</li>
+            <li>Mobile App Development</li>
+            <li>Database Management</li>
+            <li>System Analysis and Design</li>
+        </ul>
+    </section>
+    <section id="contact-info">
+        <h2>Contact Information</h2>
+        <p>Cellphone Number: 09150879034</p>
+        <p>Gmail: <a href="kylabarcenal931@gmail.com">kylabarcenal931@gmail.com</a></p>
+    </section>
+    <footer>
+        <p>&copy; <span id="year"></span> Sample Website. All rights reserved.</p>
+    </footer>
+    <button id="back-to-top" onclick="scr
